@@ -1,26 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import marked from 'marked';
+import InputText from './components/inputText';
+import OutputText from './components/outputText';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: 'test',
+      output: {
+        __html: ''
+      }
+    }
+    this.handleChange = this.handleChange.bind(this);
+    this.parseMarkdown = this.parseMarkdown.bind(this);
+  };
+
+  handleChange(element) {
+    if(element) {
+      this.setState({
+        input: element.target.value
+      });
+
+      this.parseMarkdown();
+    }
+  }
+
+  parseMarkdown() {
+
+    if(this.state.input) {
+      this.setState({
+        output: {__html: marked(this.state.input)}
+      });
+    }
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <div className='row'>
+          <div className='col-md'>
+            <InputText handleChange={this.handleChange} value={this.state.input}/>
+          </div>
+          <div className='col-md'>
+            <OutputText value={this.state.output}/>
+          </div>
+        </div>
+      </div>
+    );
+  };
 }
 
-export default App;
