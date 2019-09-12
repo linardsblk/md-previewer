@@ -3,11 +3,49 @@ import marked from 'marked';
 import InputText from './components/inputText';
 import OutputText from './components/outputText';
 
+
+const defaultInputText = 
+`# Markdown preview
+
+Welcome to my markdown previewer. 
+
+Check out this site's source code at my [GitHub](https://github.com/linardsblk/md-previewer).
+
+## Here are some examples:
+\`You can write code like this...\`
+
+...or write multiline code like this:
+\`\`\`
+int a = 0;
+a++;
+cout << a;
+\`\`\`
+
+Write lists:
+* One
+* Two 
+* Three
+
+1. Element1
+2. Element2
+
+> Write quoted text 
+
+**bold text example**
+
+
+See more examples [here](https://www.markdownguide.org/basic-syntax/)
+
+
+This page was made using [Reactjs](https://reactjs.org/)
+
+![React](./reactlogo.png)
+`
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: 'test',
+      input: defaultInputText,
       output: {
         __html: ''
       }
@@ -16,21 +54,25 @@ export default class App extends React.Component {
     this.parseMarkdown = this.parseMarkdown.bind(this);
   };
 
+  componentDidMount() {
+    this.parseMarkdown(this.state.input);
+  }
+
   handleChange(element) {
     if(element) {
       this.setState({
         input: element.target.value
       });
 
-      this.parseMarkdown();
+      this.parseMarkdown(element.target.value);
     }
   }
 
-  parseMarkdown() {
+  parseMarkdown(inputText) {
 
-    if(this.state.input) {
+    if(inputText || inputText === '') {
       this.setState({
-        output: {__html: marked(this.state.input)}
+        output: {__html: marked(inputText)}
       });
     }
   }
@@ -38,14 +80,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className='row'>
-          <div className='col-md'>
             <InputText handleChange={this.handleChange} value={this.state.input}/>
-          </div>
-          <div className='col-md'>
             <OutputText value={this.state.output}/>
-          </div>
-        </div>
       </div>
     );
   };
