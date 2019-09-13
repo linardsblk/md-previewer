@@ -10,7 +10,6 @@ Libraries used:
 * [Bootstrap](https://getbootstrap.com/)
 * []
 ## TODO:
-* Add "Delete text" button
-* Add "Reset text" button
 * Deploy to GitHub pages
+* Add "Copy to clipboard" button
 
