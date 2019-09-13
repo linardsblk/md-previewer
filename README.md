@@ -8,7 +8,7 @@ Project was made using React.js framework.
 Libraries used:
 * [Marked.js](https://marked.js.org/)
 * [Bootstrap](https://getbootstrap.com/)
-* []
+* [Material.ui icons](https://material.io/resources/icons/)
 ## TODO:
 * Deploy to GitHub pages
 * Add "Copy to clipboard" button
