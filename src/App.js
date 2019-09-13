@@ -1,7 +1,8 @@
 import React from 'react';
 import marked from 'marked';
-import InputText from './components/inputText';
-import OutputText from './components/outputText';
+import InputText from './components/InputText';
+import OutputText from './components/OutputText';
+import Button from './components/Button';
 
 // Set parameters for Marked.js
 var renderer = new marked.Renderer();
@@ -65,6 +66,8 @@ export default class App extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.parseMarkdown = this.parseMarkdown.bind(this);
+    this.deleteText = this.deleteText.bind(this);
+    this.resetText = this.resetText.bind(this);
   };
 
   componentDidMount() {
@@ -90,10 +93,26 @@ export default class App extends React.Component {
     }
   }
 
+  deleteText() {
+    this.setState({
+      input: '',
+      output: {__html: ''}
+    });
+  }
+
+  resetText() {
+    this.setState({
+      input: defaultInputText,
+      output: {__html: marked(defaultInputText)}
+    });
+  }
+
   render() {
     return (
       <div className="container">
             <InputText handleChange={this.handleChange} value={this.state.input}/>
+            <Button onClick={this.deleteText} text='Delete text' type='btn-danger' icon='delete'/>
+            <Button onClick={this.resetText} text='Reset text' type='btn-primary' icon='refresh'/>
             <OutputText value={this.state.output}/>
       </div>
     );
