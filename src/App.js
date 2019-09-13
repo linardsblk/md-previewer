@@ -68,6 +68,7 @@ export default class App extends React.Component {
     this.parseMarkdown = this.parseMarkdown.bind(this);
     this.deleteText = this.deleteText.bind(this);
     this.resetText = this.resetText.bind(this);
+    this.copyToClipBoard = this.copyToClipBoard.bind(this);
   };
 
   componentDidMount() {
@@ -107,13 +108,18 @@ export default class App extends React.Component {
     });
   }
 
+  copyToClipBoard() {
+    navigator.clipboard.writeText(this.state.input);
+  }
+
   render() {
     return (
       <div className="container">
-            <InputText handleChange={this.handleChange} value={this.state.input}/>
-            <Button onClick={this.deleteText} text='Delete text' type='btn-danger' icon='delete'/>
-            <Button onClick={this.resetText} text='Reset text' type='btn-primary' icon='refresh'/>
-            <OutputText value={this.state.output}/>
+        <InputText handleChange={this.handleChange} value={this.state.input}/>
+        <Button onClick={this.deleteText} text='Delete text' type='btn-danger' icon='delete'/>
+        <Button onClick={this.resetText} text='Reset text' type='btn-primary' icon='refresh'/>
+        <Button onClick={this.copyToClipBoard} text='Copy to clipboard' type='btn-secondary' icon='file_copy'/>
+        <OutputText value={this.state.output}/>
       </div>
     );
   };
