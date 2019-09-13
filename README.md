@@ -9,6 +9,5 @@ Libraries used [Marked.js](https://marked.js.org/)
 ## TODO:
 * Add "Delete text" button
 * Add "Reset text" button
-* Make links open in new page
 * Deploy to GitHub pages
 

@@ -3,7 +3,20 @@ import marked from 'marked';
 import InputText from './components/inputText';
 import OutputText from './components/outputText';
 
+// Set parameters for Marked.js
+var renderer = new marked.Renderer();
+renderer.link = function(href, title, text) {
+  var link = marked.Renderer.prototype.link.apply(this, arguments);
+  return link.replace('<a', '<a target="_blank"');
+}
 
+marked.setOptions({
+  breaks: true,
+  renderer: renderer
+});
+//
+
+// Default input text
 const defaultInputText = 
 `# Markdown preview
 
