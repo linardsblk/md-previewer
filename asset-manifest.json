@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/md-previewer/static/css/main.498d002a.chunk.css",
+    "main.js": "/md-previewer/static/js/main.63aa74ac.chunk.js",
+    "main.js.map": "/md-previewer/static/js/main.63aa74ac.chunk.js.map",
+    "runtime~main.js": "/md-previewer/static/js/runtime~main.56cd1774.js",
+    "runtime~main.js.map": "/md-previewer/static/js/runtime~main.56cd1774.js.map",
+    "static/css/2.22a7d4ef.chunk.css": "/md-previewer/static/css/2.22a7d4ef.chunk.css",
+    "static/js/2.a40af365.chunk.js": "/md-previewer/static/js/2.a40af365.chunk.js",
+    "static/js/2.a40af365.chunk.js.map": "/md-previewer/static/js/2.a40af365.chunk.js.map",
+    "index.html": "/md-previewer/index.html",
+    "precache-manifest.63e24fbcc5089d914231ca93db0cd35e.js": "/md-previewer/precache-manifest.63e24fbcc5089d914231ca93db0cd35e.js",
+    "service-worker.js": "/md-previewer/service-worker.js",
+    "static/css/2.22a7d4ef.chunk.css.map": "/md-previewer/static/css/2.22a7d4ef.chunk.css.map",
+    "static/css/main.498d002a.chunk.css.map": "/md-previewer/static/css/main.498d002a.chunk.css.map"
+  }
+}
