@@ -9,6 +9,6 @@ Libraries used:
 * [Marked.js](https://marked.js.org/)
 * [Bootstrap](https://getbootstrap.com/)
 * [Material.io icons](https://material.io/resources/icons/)
-## TODO:
-* Deploy to GitHub pages
+
+[Link to site](https://linardsblk.github.io/md-previewer/)
 
